@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rezerwacja udana</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="okno">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" />
+      <h1>Twoja rezerwacja została przyjęta!</h1>
+      <a href="{{ url_for('index') }}" class="btn-rezerwuj">Powrót do strony głównej</a>
+    </div>
+  </body>
+</html>

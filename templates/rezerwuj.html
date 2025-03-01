@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rezerwacja</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let stoliki = document.querySelectorAll(".stolik");
+        stoliki.forEach(function (stolik) {
+          stolik.addEventListener("click", function () {
+            if (!this.classList.contains("zajety")) {
+              stoliki.forEach(s => s.classList.remove("wybrany"));
+              this.classList.add("wybrany");
+              document.getElementById("stolik_id").value = this.textContent.trim();
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="okno">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" />
+      <h2>Wybierz stolik:</h2>
+      <div class="sala">
+        {% for stolik in stoliki %}
+          <div class="stolik">{{ stolik }}</div>
+        {% endfor %}
+      </div>
+      <form method="POST">
+        <input type="hidden" name="stolik_id" id="stolik_id" required />
+        <label>Imię:</label>
+        <input type="text" name="imie" required />
+        <label>Email:</label>
+        <input type="email" name="email" required />
+        <label>Telefon:</label>
+        <input type="text" name="telefon" required />
+        <label>Liczba osób:</label>
+        <input type="number" name="liczba_osob" min="1" max="4" required />
+        <label>Data:</label>
+        <input type="date" name="data" required />
+        <label>Godzina:</label>
+        <input type="time" name="godzina" required />
+        <button type="submit" class="btn-rezerwuj">Zarezerwuj</button>
+      </form>
+    </div>
+  </body>
+</html>

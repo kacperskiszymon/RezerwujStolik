@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rezerwacja</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="okno">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" />
+      <p class="intro">
+        <strong>
+          Dzień dobry!<br /><br>
+          Wybierz stolik, podaj swoje dane i ciesz się posiłkiem w naszej restauracji!
+        </strong>
+      </p>
+      <a href="{{ url_for('rezerwuj') }}" class="btn-rezerwuj">Zarezerwuj stolik</a>
+    </div>
+  </body>
+</html>
